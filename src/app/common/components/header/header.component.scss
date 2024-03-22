@@ -1,0 +1,145 @@
+@import "_variables";
+@import "_responsive";
+@import "_buttons";
+
+header {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+
+  &.redaktor {
+    background-color: #09599b;
+    height: 58px;
+    padding: 0 24px;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+
+    .title-container {
+      margin: 0;
+      width: calc(100% - 70px);
+
+      h2 {
+        color: white;
+        font-size: 18px;
+        margin: 0;
+      }
+    }
+
+    .btn {
+      @include button;
+      border-radius: 5px;
+      text-decoration: none;
+      border: 1px solid #fff;
+      margin-right: 2rem;
+
+      @include breakpoint(mobile) {
+        margin-right: 0;
+      }
+    }
+
+    .image-container {
+      height: 58px;
+      display: flex;
+      align-items: center;
+    }
+
+    .line {
+      display: none;
+    }
+  }
+
+  @include breakpoint(mobile) {
+    padding-top: 10px;
+  }
+
+  @include breakpoint(min-tablet) {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+  }
+
+  @include breakpoint(laptop) {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+  }
+
+  .image-container {
+    padding: 0;
+    width: 64px;
+    height: 66px;
+
+    @include breakpoint(max-tablet) {
+      display: none;
+    }
+
+    @include breakpoint(laptop) {
+      width: 72px;
+      height: 74px;
+    }
+
+    .ufg-logo {
+      color: $blue-color;
+      @extend .image-container;
+    }
+  }
+
+  .title-container {
+    padding: 0;
+
+    @include breakpoint(tablet) {
+      margin-left: 10px;
+    }
+
+    @include breakpoint(max-tablet) {
+      margin-top: 20px;
+    }
+
+    @include breakpoint(laptop) {
+      margin: 0;
+    }
+  }
+
+  h2 {
+    font-family: $font;
+    color: #000000DE;
+    text-align: left;
+    font-size: 24px;
+    margin: 15px 0 0 0;
+
+    @include breakpoint(min-tablet) {
+      margin: 0 0 0 10px;
+    }
+
+    @include breakpoint(tablet) {
+      font-size: 34px;
+      margin: 0;
+    }
+  }
+}
+
+.line {
+  margin: 5px 0 0 0;
+  z-index: 100;
+
+  @include breakpoint(laptop) {
+    margin: 30px 0 0 0;
+  }
+
+  @media screen and (min-width: 767px) and (max-width: 991px) {
+    position: fixed;
+    width: calc(100% - 40px);
+    margin-left: 20px;
+    left: 0;
+    top: 88px;
+  }
+  @media screen and (min-width: 992px) {
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: 1;
+  }
+}

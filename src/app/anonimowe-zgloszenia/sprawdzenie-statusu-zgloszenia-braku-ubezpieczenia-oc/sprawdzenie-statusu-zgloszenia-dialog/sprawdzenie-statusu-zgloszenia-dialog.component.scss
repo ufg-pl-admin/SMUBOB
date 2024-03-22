@@ -1,0 +1,21 @@
+@import "variables";
+
+.close-btn-container {
+  position: absolute;
+  top: -5px;
+  right: -10px;
+}
+
+.container {
+  position: relative;
+  font-size: 16px;
+}
+
+dt {
+  display: inline;
+  margin-right: 30px;
+}
+
+dd {
+  display: inline;
+}

@@ -1,0 +1,165 @@
+<div class="row">
+  <div class="col-lg-12">
+    <h2>Zgłoś podejrzenie o braku OC</h2>
+    <hr>
+  </div>
+</div>
+<form [formGroup]="form">
+  <div class="row form-container">
+    <div class="col-lg-3">
+      <mat-form-field>
+        <mat-label mandatory-conditionaly>Numer rejestracyjny</mat-label>
+        <input  autocomplete="one-time-code" type="text" upperCase formControlName="nrRejestracyjny" matInput [errorStateMatcher]="matcher">
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('nrRejestracyjny'))">{{error}}</mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-lg-3">
+      <mat-form-field>
+        <mat-label mandatory-conditionaly>Numer VIN</mat-label>
+        <input  autocomplete="one-time-code" type="text" upperCase formControlName="nrVin" matInput [errorStateMatcher]="matcher">
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('nrVin'))">{{error}}</mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-lg-3">
+      <mat-form-field>
+        <mat-label mandatory>Marka</mat-label>
+        <mat-select formControlName="marka">
+          <mat-option *ngFor="let marka of markiSamochodow" [value]="marka">{{marka}}</mat-option>
+        </mat-select>
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('marka'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-lg-3">
+      <mat-form-field>
+        <mat-label>Model</mat-label>
+        <mat-select formControlName="model">
+          <mat-option *ngFor="let model of modeleSamochodow" [value]="model">{{model}}</mat-option>
+        </mat-select>
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('model'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="col-lg-3">
+      <mat-form-field>
+        <mat-label>Forma prawna</mat-label>
+        <mat-select (selectionChange)="setFormaPrawna($event)" formControlName="formaPrawna">
+          <mat-option></mat-option>
+          <mat-option [value]="'OSFIZYCZNA'">Osoba fizyczna</mat-option>
+          <mat-option [value]="'FIRMOSFIZYCZNA'">Firma-Osoba Fizyczna</mat-option>
+          <mat-option [value]="'OSPRAWNA'">Firma-Osoba prawna</mat-option>
+        </mat-select>
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('model'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+    <div class="col-lg-3">
+      <mat-form-field  [class.blocked]="form.controls['formaPrawna'].value !== 'OSFIZYCZNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">
+        <mat-label  [class.blocked]="form.controls['formaPrawna'].value !== 'OSFIZYCZNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">Imię właściciela pojazdu</mat-label>
+        <input autocomplete="one-time-code" type="text" formControlName="imieWlascicielaPojazdu" matInput>
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('imieWlascicielaPojazdu'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-lg-3">
+      <mat-form-field  [class.blocked]="form.controls['formaPrawna'].value !== 'OSFIZYCZNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">
+        <mat-label  [class.blocked]="form.controls['formaPrawna'].value !== 'OSFIZYCZNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">Nazwisko właściciela pojazdu</mat-label>
+        <input  autocomplete="one-time-code" type="text" formControlName="nazwiskoWlascicielaPojazdu" matInput>
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('nazwiskoWlascicielaPojazdu'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-3">
+      <mat-form-field  [class.blocked]="form.controls['formaPrawna'].value !== 'OSPRAWNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">
+        <mat-label  [class.blocked]="form.controls['formaPrawna'].value !== 'OSPRAWNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">Nazwa firmy właściciela pojazdu</mat-label>
+        <input  autocomplete="one-time-code" type="text" formControlName="nazwaFirmyWlascicielaPojazdu" matInput>
+        <mat-error
+          *ngFor="let error of errorService.mapErrors(getFormControl('nazwaFirmyWlascicielaPojazdu'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-lg-3">
+      <mat-form-field  [class.blocked]="form.controls['formaPrawna'].value !== 'OSFIZYCZNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">
+        <mat-label  [class.blocked]="form.controls['formaPrawna'].value !== 'OSFIZYCZNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">PESEL właściciela pojazdu</mat-label>
+        <input autocomplete="one-time-code" type="text" formControlName="peselWlascicielaPojazdu" matInput aria-label="Numer pesel właściciela pojazdu">
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('peselWlascicielaPojazdu'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-lg-3">
+      <mat-form-field  [class.blocked]="form.controls['formaPrawna'].value !== 'OSFIZYCZNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">
+        <mat-label  [class.blocked]="form.controls['formaPrawna'].value !== 'OSFIZYCZNA' && form.controls['formaPrawna'].value !== 'FIRMOSFIZYCZNA'">Płeć właściciela pojazdu</mat-label>
+        <mat-select formControlName="plecWlascicielaPojazdu"
+                    id="mez-vehicleOwnerDataForm-plec-form-input">
+          <mat-option [value]="null"></mat-option>
+          <mat-option [value]="'K'">Kobieta</mat-option>
+          <mat-option [value]="'M'">Mężczyzna</mat-option>
+          <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('plecWlascicielaPojazdu'))">{{error}}</mat-error>
+        </mat-select>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-lg-9">
+      <mat-form-field>
+        <mat-label>Dodatkowe informacje</mat-label>
+        <input  autocomplete="one-time-code" type="text" formControlName="informacjeDodatkowe" matInput>
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('informacjeDodatkowe'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+
+    <div class="col-lg-3 d-flex align-items-center">
+      <mat-checkbox [checked]="daneZglaszajacegoVisible" (change)="changeVisibility()">Chcę podać dane zgłaszającego
+      </mat-checkbox>
+    </div>
+
+    <div class="col-lg-3" *ngIf="daneZglaszajacegoVisible">
+      <mat-form-field>
+        <mat-label>Imię zgłaszającego</mat-label>
+        <input  autocomplete="one-time-code" type="text" formControlName="imieZglaszajacego" matInput>
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('imieZglaszajacego'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+    </div>
+
+    <div class="col-lg-3" *ngIf="daneZglaszajacegoVisible">
+      <mat-form-field>
+        <mat-label>Nazwisko zgłaszającego</mat-label>
+        <input  autocomplete="one-time-code" type="text" formControlName="nazwiskoZglaszajacego" matInput>
+        <mat-error *ngFor="let error of errorService.mapErrors(getFormControl('nazwiskoZglaszajacego'))">{{error}}
+        </mat-error>
+      </mat-form-field>
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 res-captcha d-flex" *ngIf="!!siteKeyV2">
+      <re-captcha (resolved)="resolved($event)"
+                  siteKey="{{siteKeyV2}}">
+      </re-captcha>
+      <div>
+        <span class="mandatory">*</span>
+      </div>
+    </div>
+  </div>
+</form>
+
+

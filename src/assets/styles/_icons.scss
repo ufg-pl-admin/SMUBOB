@@ -1,0 +1,23 @@
+@mixin icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  color: $icon-color;
+}
+
+@mixin info-cont {
+  margin: 30px 0 40px;
+  position: relative;
+  display: flex;
+
+  img {
+    width: 28px;
+    height: 28px;
+    margin-left: 16px;
+  }
+
+  p {
+    margin-left: 16px;
+  }
+}
+

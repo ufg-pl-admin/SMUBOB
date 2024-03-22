@@ -1,0 +1,81 @@
+@mixin breakpoint($point) {
+
+  @if $point =='max-laptop-xl' {
+    @media (max-width: 1400px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='laptop-xl' {
+    @media (min-width: 1400px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='max-laptop-big' {
+    @media (max-width: 1200px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='laptop-big' {
+    @media (min-width: 1200px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='max-laptop' {
+    @media (max-width: 1025px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='laptop' {
+    @media (min-width: 1025px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='max-tablet' {
+    @media (max-width: 991px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='tablet' {
+    @media (min-width: 991px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='min-tablet' {
+    @media (min-width: 767px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='max-mobile' {
+    @media (max-width: 766px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='max-sm-mobile' {
+    @media (max-width: 566px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='sm-mobile' {
+    @media (min-width: 566px) {
+      @content ;
+    }
+  }
+
+  @else if $point =='mobile' {
+    @media (min-width: 320px) {
+      @content ;
+    }
+  }
+
+}

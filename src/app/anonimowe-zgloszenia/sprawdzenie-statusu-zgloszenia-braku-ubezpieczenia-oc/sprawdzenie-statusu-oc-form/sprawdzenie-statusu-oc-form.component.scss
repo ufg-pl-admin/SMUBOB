@@ -1,0 +1,60 @@
+@import "_variables";
+@import "_buttons";
+@import "_responsive";
+
+form {
+  dl {
+    display: inline-grid;
+    grid-template-columns: auto auto;
+    margin: 10px;
+    @include breakpoint(laptop) {
+      margin-top: 20px;
+    }
+
+    dt {
+      grid-column-start: 1;
+      font-size: 14px;
+      font-weight: normal;
+      color: #0F0F0F;
+      display: flex;
+      align-items: center;
+      padding-right: 15px;
+
+      @include breakpoint(min-tablet) {
+        font-size: 16px;
+      }
+      min-width: 220px;
+    }
+
+    dd {
+      grid-column-start: 2;
+      font-size: 14px;
+      font-weight: bold;
+
+      @include breakpoint(min-tablet) {
+        font-size: 16px;
+        min-width: 300px;
+      }
+
+    }
+    ::ng-deep.mat-form-field-appearance-legacy .mat-form-field-underline {
+      background-color: $blue-color;
+    }
+  }
+}
+.res-captcha {
+  margin-top: 60px;
+  position: relative;
+
+  div.star {
+    position: absolute;
+    margin-left: 180px;
+    top: 24px;
+  }
+}
+mat-form-field {
+  width: 100%;
+}
+.text-danger {
+  font-size: 16px;
+}

@@ -1,0 +1,5 @@
+@import "_mixin";
+
+.sr-only {
+ @include sr-only;
+}

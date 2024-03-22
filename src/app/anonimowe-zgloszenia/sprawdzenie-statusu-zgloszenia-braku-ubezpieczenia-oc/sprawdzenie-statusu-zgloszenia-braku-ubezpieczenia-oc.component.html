@@ -1,0 +1,16 @@
+<h1 class="sr-only">Formularz sprawdzenia statusu zgłoszenia braku ubezpieczenia OC</h1>
+<main>
+  <div class="container main-container">
+    <smubob-header
+      title="Sprawdzenie statusu zgłoszenia braku ubezpieczenia OC"
+    ></smubob-header>
+    <div class="row">
+      <app-sprawdzenie-status-oc-form [form]="form">
+      </app-sprawdzenie-status-oc-form>
+    </div>
+    <app-sprawdzenie-status-oc-form-buttons
+      [formValid]="isFormValid()"
+      (resetFormEvent)="clearForm()"
+      (sendFormEvent)="sendForm()"></app-sprawdzenie-status-oc-form-buttons>
+  </div>
+</main>

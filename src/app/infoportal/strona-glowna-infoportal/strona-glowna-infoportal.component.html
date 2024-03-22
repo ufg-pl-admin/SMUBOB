@@ -1,0 +1,18 @@
+<h1 class="sr-only">Formularz prezentujący stronę główną infoportalu</h1>
+
+
+  <section class="srodkowy-panel"  *ngIf="isObywatel">
+
+    <div class="row srodkowa-belka">
+
+      <div class="col-lg-6 srodek srodek-drugi">
+        <a [routerLink]="['/infoportal/anonimowe-zawiadomienie']" class="iks">Zgłoś podejrzenie braku OC</a>
+        <br>
+        <a [routerLink]="['/infoportal/anonimowe-zawiadomienie/sprawdzenie-statusu-anonimowego-zgloszenia']">Sprawdź status zgłoszonego e-zawiadomienia</a>
+
+      </div>
+    </div>
+
+
+  </section>
+

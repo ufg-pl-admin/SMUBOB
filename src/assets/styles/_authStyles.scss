@@ -1,0 +1,80 @@
+@import "_variables";
+::ng-deep body {
+
+  .mat-radio-container {
+    width: 24px;
+    height: 24px;
+
+    .mat-radio-outer-circle {
+      width: 24px;
+      height: 24px;
+      border-width: 1px;
+    }
+
+    .mat-radio-inner-circle {
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+
+  &.obywatel {
+    background-color: #F3F7FA;
+
+    .mat-checkbox-inner-container {
+      height: 24px;
+      width: 24px;
+
+      .mat-checkbox-frame {
+        border: 1px solid #0E5A9E;
+      }
+    }
+
+    .mat-radio-outer-circle {
+      border: 1px solid #0E5A9E;
+    }
+  }
+
+  &.instytucja {
+    background-color: #fff;
+
+    .mat-checkbox-inner-container {
+      height: 24px;
+      width: 24px;
+
+      .mat-checkbox-frame {
+        border: 1px solid #5C5E60;
+      }
+    }
+
+    .mat-radio-outer-circle {
+      border: 1px solid #5C5E60;
+    }
+
+    button {
+
+      &.button-as {
+        height: 32px !important;
+        padding: 0 12px !important;
+        border-radius: 0 !important;
+      }
+
+      &.back-button-as {
+        background-color: white !important;
+      }
+    }
+  }
+  .mat-radio-button.mat-accent .mat-radio-inner-circle,
+  .mat-radio-button.mat-accent .mat-radio-ripple .mat-ripple-element:not(.mat-radio-persistent-ripple),
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-persistent-ripple,
+  .mat-radio-button.mat-accent:active .mat-radio-persistent-ripple,
+  .mat-checkbox-indeterminate.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked.mat-accent .mat-checkbox-background,
+  .mat-checkbox-checked:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element,
+  .mat-checkbox:active:not(.mat-checkbox-disabled).mat-accent .mat-ripple-element {
+    background: $blue-color;
+  }
+  .mat-radio-button.mat-accent.mat-radio-checked .mat-radio-outer-circle {
+    border-color: $blue-color;
+  }
+}

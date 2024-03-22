@@ -1,0 +1,109 @@
+/* @import "bootstrap"; */
+@import "bootstrap-icons/font/bootstrap-icons.css";
+@import "@angular/cdk/overlay-prebuilt.css";
+
+
+.elipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.form-label {
+  color: #09599b;
+  font-size: 12px;
+  margin: 0;
+}
+
+.form-control {
+  font-size: 14px;
+  border-top: unset;
+  border-left: unset;
+  border-right: unset;
+  border-bottom: 2px solid #09599b;
+  border-radius: 0;
+  padding: 0;
+  background-color: transparent;
+
+  &:disabled {
+    background: none;
+    border-bottom-width: 1px;
+  }
+}
+
+.form-select {
+  font-size: 14px;
+  border-top: unset;
+  border-left: unset;
+  border-right: unset;
+  padding: 0 24px 0 0;
+  background-position: right 0 center;
+  background-size: 20px 15px;
+  border-bottom: 2px solid #09599b;
+  border-radius: 0;
+
+  &.disabled,
+  &:disabled {
+    background-image: none;
+    background-color: #ffffff;
+  }
+}
+
+.form-check-input {
+  width: 1.5em;
+  height: 1.5em;
+  margin-top: 0;
+  vertical-align: top;
+  background-color: #ffffff;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  border: 2px solid #757575;
+  -webkit-appearance: none;
+  appearance: none;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+
+  &:checked {
+    border: 2px solid #757575;
+
+    &[type='radio'] {
+      background-color: #fff;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'%3e%3ccircle r='2' fill='%2309599b'/%3e%3c/svg%3e");
+    }
+  }
+}
+
+form.display-errors {
+  .ng-invalid:not(form) {
+    border-color: #db0000;
+
+    input,
+    select {
+      border-color: #db0000;
+    }
+  }
+}
+
+.form-row {
+  display: flex;
+  column-gap: 1rem;
+  row-gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+  align-content: stretch;
+  align-items: baseline;
+
+  .form-field {
+    margin-right: 1rem;
+    margin-bottom: 0.5em;
+
+    &:last-of-type {
+      margin-right: unset;
+    }
+  }
+
+  &:last-of-type {
+    margin-bottom: unset;
+  }
+}

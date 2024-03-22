@@ -1,0 +1,58 @@
+<div class="row">
+  <div class="col-lg-12 mt-3">
+    <h2>Lista załączników</h2>
+    <hr>
+  </div>
+  <div class="col-lg-12 col-md-12 col-12 p-4">
+    <div class="row table-container m-0">
+      <div class="col-lg-12 table-section">
+          <caption class="sr-only">Załączniki</caption>
+          <ng-container matColumnDef="file">
+            <mat-header-cell aria-label="Uwaga! Kliknięcie w nagłówek uruchomi sortowanie po nazwie"  *matHeaderCellDef mat-sort-header> Nazwa </mat-header-cell>
+            <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="size">
+            <mat-header-cell *matHeaderCellDef> Rozmiar </mat-header-cell>
+            <mat-cell *matCellDef="let element">{{sizeToMB(element.size) + ' MB'}}</mat-cell>
+          </ng-container>
+
+          <ng-container matColumnDef="remove">
+            <mat-header-cell *matHeaderCellDef> Usuń </mat-header-cell>
+            <mat-cell *matCellDef="let element; let rowIndex = dataIndex">
+              <button type="button"
+                      class="delete-button"
+                      (click)="onUsunZalacznik(element.name)"
+                      id="attachmentList-button-removeAttachment"
+                      aria-label="Uwaga, spowoduje usunięcia załącznika">
+              </button> </mat-cell>
+          </ng-container>
+
+          <ng-container>
+            <p class="no-data-row" *matNoDataRow>
+              Brak załączników
+            </p>
+          </ng-container>
+
+          <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+          <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+        <mat-spinner *ngIf="pokazLoader"></mat-spinner>
+      </div>
+    </div>
+    <div>
+      <input type="file" #file [multiple]="false" (change)="onFileChange($event)" style="display: none;">
+    </div>
+  </div>
+  <div class="col-lg-12 mt-1 button-container">
+    <button type="button"
+            aria-label="Dodaj załącznik, Uwaga spowoduje otwarcie okna systemowego do wyboru pliku"
+            class="btn add-file d-flex align-items-center justify-content-center"
+            id="attachmentList-button-addAttachment"
+            (click)="file.click()"
+            [disabled]="canAddAttachment()"
+            [attr.aria-disabled]="canAddAttachment()">
+      <span class="plus">+</span>
+       Dodaj załącznik
+    </button>
+  </div>
+</div>

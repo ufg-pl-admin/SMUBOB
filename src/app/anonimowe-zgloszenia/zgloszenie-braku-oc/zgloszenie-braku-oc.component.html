@@ -1,0 +1,45 @@
+<h1 class="sr-only">Formularz anonimowe e-zawiadomienie o podejrzeniu braku OC</h1>
+<main>
+  <div class="container main-container">
+    <smubob-header title="Anonimowe e-zawiadomienie o podejrzeniu braku OC"></smubob-header>
+      <a role="link"  class="link-href" [routerLink]="['sprawdzenie-statusu-anonimowego-zgloszenia']">Sprawdź status zgłoszonego e-zawiadomienia</a>
+    <div class="box">
+      <app-zgloszenie-braku-oc-form
+        [form]="form"
+        [daneZglaszajacegoVisible]="daneZglaszajacegoVisible"
+        (changeDaneZglaszajacegoEvent)="zmienWidocznosc()"
+      >
+      </app-zgloszenie-braku-oc-form>
+      <app-attachment-list
+        [zalaczniki]="zalaczniki"
+        (obsluzDodanieZalacznika)="dodajZalacznik($event)"
+        (obsluzUsuniecieZalacznika)="usunZalacznik($event)"
+      ></app-attachment-list>
+    </div>
+    <div class="row info-container">
+      <div class="col-lg-6">
+        <p><span class="info">* </span>Wymagane podanie wartości</p>
+        <p><span class="info">** </span>Wymagane podanie wartości w jednym z pól</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-lg-12">
+        <ul>
+          <li>
+            <button type="button"
+                    class="btn d-flex align-items-center col-12"
+                    id="send-button"
+                    (click)="sendForm()"
+                    [disabled]="!form.valid"
+                    [attr.aria-disabled]="!form.valid">
+              Wyślij</button>
+          </li>
+          <li>
+            <button class="btn d-flex align-items-center justify-content-center" id="return-button" (click)="goBack()">Powrót</button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</main>
+

@@ -1,0 +1,12 @@
+<header class="row header-row" [class.redaktor]="area === 'redaktor'">
+ <div class="col-lg-2 image-container">
+
+    <a *ngIf="area === 'redaktor'" id="return-button" href="#" class="btn"
+      type="button" (click)="goBack($event)">Wstecz</a>
+
+  </div>
+  <div class="col-lg-10 title-container" [@toggle]="showAnimate ? 'show' : 'close'">
+    <h2>{{title}}</h2>
+  </div>
+  <hr class="line" [@toggleHr]="showAnimate ? 'show' : 'close'">
+</header>

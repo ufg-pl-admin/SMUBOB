@@ -1,0 +1,66 @@
+$icon-color: #0A599C;
+$blue-color: #09599B;
+$second-blue-color: #0E5A9E;
+$input-txt-color: #000000DE;
+$table-txt-color: #2A2A2A;
+$line-color: #707070;
+$font: URWDIN-Regular, sans-serif;
+$light-blue-color: #e9f0f6;
+
+ ::ng-deep {
+  * {
+    :not(mat-icon) {
+      font-family: "URWDIN-Regular", sans-serif !important;
+    }
+  }
+  button:active,
+  input:focus,
+  .mat-select-arrow-wrapper:focus,
+  .mat-select-value:focus
+  {
+     outline: 2px solid white !important;
+     box-shadow: 0 0 0 5px black;
+   }
+   .mat-form-field-infix {
+     padding: 5px !important;
+   }
+}
+::ng-deep {
+  a:focus,
+  button:active,
+  mat-radio-button.cdk-keyboard-focused,
+  input:focus,
+  .mat-select-arrow-wrapper:focus,
+  mat-select:focus,
+  mat-checkbox:focus,
+  select:focus,
+  mat-expansion-panel-header.cdk-keyboard-focused,
+  .mat-option.mat-active,
+  .cdk-keyboard-focused .mat-checkbox-inner-container,
+  mat-header-cell.cdk-keyboard-focused .mat-sort-header-arrow
+  {
+    outline: 2px solid white !important;
+    box-shadow: 0 0 0 5px black !important;
+  }
+  .mat-select-panel,
+  .mat-expansion-panel {
+    padding: 5px !important;
+  }
+  [mat-sort-header].cdk-keyboard-focused .mat-sort-header-container,
+  [mat-sort-header].cdk-program-focused .mat-sort-header-container {
+    border-bottom: none !important;
+  }
+
+  .mat-form-field .mat-select.mat-select-invalid .mat-select-arrow,
+  .mat-error {
+    color: #B40B0B;
+  }
+  .mat-form-field.mat-form-field-invalid .mat-form-field-ripple {
+    background-color: #B40B0B;
+  }
+}
+::ng-deep {
+  span.mat-placeholder-required {
+    display: none !important;
+  }
+}
